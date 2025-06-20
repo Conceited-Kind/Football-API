@@ -1,0 +1,334 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Football API",
+        "description": "A simple Football API with CRUD operations for players and teams",
+        "version": "1.0"
+    },
+    "basePath": "/",
+    "schemes": ["http"],
+    "paths": {
+        "/players": {
+            "get": {
+                "summary": "List all players",
+                "description": "Retrieve a list of all players in the database",
+                "responses": {
+                    "200": {
+                        "description": "A list of players",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Player"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new player",
+                "description": "Create a new player with the provided details",
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PlayerInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Player created",
+                        "schema": {
+                            "$ref": "#/definitions/Player"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/players/{id}": {
+            "get": {
+                "summary": "Get a player by ID",
+                "description": "Retrieve a specific player by their ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "description": "Player ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Player details",
+                        "schema": {
+                            "$ref": "#/definitions/Player"
+                        }
+                    },
+                    "404": {
+                        "description": "Player not found"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a player by ID",
+                "description": "Update the details of a specific player by their ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "description": "Player ID"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PlayerInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Player updated",
+                        "schema": {
+                            "$ref": "#/definitions/Player"
+                        }
+                    },
+                    "404": {
+                        "description": "Player not found"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a player by ID",
+                "description": "Delete a specific player by their ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "description": "Player ID"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Player deleted"
+                    },
+                    "404": {
+                        "description": "Player not found"
+                    }
+                }
+            }
+        },
+        "/teams": {
+            "get": {
+                "summary": "List all teams",
+                "description": "Retrieve a list of all teams in the database",
+                "responses": {
+                    "200": {
+                        "description": "A list of teams",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Team"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new team",
+                "description": "Create a new team with the provided details",
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TeamInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Team created",
+                        "schema": {
+                            "$ref": "#/definitions/Team"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/teams/{id}": {
+            "get": {
+                "summary": "Get a team by ID",
+                "description": "Retrieve a specific team by their ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "description": "Team ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Team details",
+                        "schema": {
+                            "$ref": "#/definitions/Team"
+                        }
+                    },
+                    "404": {
+                        "description": "Team not found"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a team by ID",
+                "description": "Update the details of a specific team by their ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "description": "Team ID"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TeamInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Team updated",
+                        "schema": {
+                            "$ref": "#/definitions/Team"
+                        }
+                    },
+                    "404": {
+                        "description": "Team not found"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a team by ID",
+                "description": "Delete a specific team by their ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "description": "Team ID"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Team deleted"
+                    },
+                    "404": {
+                        "description": "Team not found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Player": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "Unique identifier for the player"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Player name"
+                },
+                "position": {
+                    "type": "string",
+                    "description": "Player position"
+                },
+                "team_id": {
+                    "type": "integer",
+                    "description": "Team ID"
+                }
+            }
+        },
+        "PlayerInput": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Player name"
+                },
+                "position": {
+                    "type": "string",
+                    "description": "Player position"
+                },
+                "team_id": {
+                    "type": "integer",
+                    "description": "Team ID"
+                }
+            }
+        },
+        "Team": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "Unique identifier for the team"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Team name"
+                },
+                "city": {
+                    "type": "string",
+                    "description": "Team city"
+                }
+            }
+        },
+        "TeamInput": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Team name"
+                },
+                "city": {
+                    "type": "string",
+                    "description": "Team city"
+                }
+            }
+        }
+    }
+}

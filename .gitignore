@@ -1,0 +1,36 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Virtual Environments
+env/
+venv/
+.venv/
+ENV/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Logs and Databases
+*.log
+*.sqlite3
+*.db
+
+# Environment Variables
+.env
+*.env
