@@ -60,7 +60,7 @@ Football-API/
 > **Note:**  
 > - `app.py`: Main application entry point  
 > - `resources/`: Contains resource files for API endpoints  
-> - `data.py`: Shared data or models  
+> - `static/`: Contains the json data  
 > - `.venv/`: Virtual environment (should not be committed)  
 > - `requirements.txt`: Python dependencies  
 > - `README.md`: Project documentation  
